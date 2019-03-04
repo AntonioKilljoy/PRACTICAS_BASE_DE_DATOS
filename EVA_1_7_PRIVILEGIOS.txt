@@ -1,0 +1,289 @@
+Switching to SQL mode... Commands end with ;
+
+ MySQL  SQL > \connect --mc usuario_1@localhost
+Creating a Classic session to 'usuario_1@localhost'
+Please provide the password for 'usuario_1@localhost': ****
+Save password for 'usuario_1@localhost'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 19
+Server version: 8.0.14 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
++--------------------+
+1 row in set (0.0023 sec)
+
+ MySQL  localhost:3306 ssl  SQL > create user "tono"@"localhost" identified by "root";
+ERROR: 1227 (42000): Access denied; you need (at least one of) the CREATE USER privilege(s) for this operation
+
+ MySQL  localhost:3306 ssl  SQL > create databases mibase;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases mibase' at line 1
+
+ MySQL  localhost:3306 ssl  SQL > create database mibase;
+ERROR: 1044 (42000): Access denied for user 'usuario_1'@'localhost' to database 'mibase'
+
+ MySQL  localhost:3306 ssl  SQL >
+
+
+
+MySQL Shell 8.0.15
+
+Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+
+ MySQL  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 18
+Server version: 8.0.14 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| eva_1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.0328 sec)
+
+ MySQL  localhost:3306 ssl  SQL > \use mysql;
+MySQL Error 1049: Unknown database 'mysql;'
+
+ MySQL  localhost:3306 ssl  SQL > \use mysql
+Default schema set to `mysql`.
+Fetching table and column names from `mysql` for auto-completion... Press ^C to stop.
+
+ MySQL  localhost:3306 ssl  mysql  SQL > show users;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users' at line 1
+
+ MySQL  localhost:3306 ssl  mysql  SQL > show user;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'user' at line 1
+
+ MySQL  localhost:3306 ssl  mysql  SQL > show tables;
++---------------------------+
+| Tables_in_mysql           |
++---------------------------+
+| columns_priv              |
+| component                 |
+| db                        |
+| default_roles             |
+| engine_cost               |
+| func                      |
+| general_log               |
+| global_grants             |
+| gtid_executed             |
+| help_category             |
+| help_keyword              |
+| help_relation             |
+| help_topic                |
+| innodb_index_stats        |
+| innodb_table_stats        |
+| password_history          |
+| plugin                    |
+| procs_priv                |
+| proxies_priv              |
+| role_edges                |
+| server_cost               |
+| servers                   |
+| slave_master_info         |
+| slave_relay_log_info      |
+| slave_worker_info         |
+| slow_log                  |
+| tables_priv               |
+| time_zone                 |
+| time_zone_leap_second     |
+| time_zone_name            |
+| time_zone_transition      |
+| time_zone_transition_type |
+| user                      |
++---------------------------+
+33 rows in set (0.0044 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > desc user;
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Field                    | Type                              | Null | Key | Default               | Extra |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Host                     | char(60)                          | NO   | PRI |                       |       |
+| User                     | char(32)                          | NO   | PRI |                       |       |
+| Select_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Insert_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Update_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Delete_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Reload_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Shutdown_priv            | enum('N','Y')                     | NO   |     | N                     |       |
+| Process_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| File_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Grant_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| References_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Index_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_db_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Super_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tmp_table_priv    | enum('N','Y')                     | NO   |     | N                     |       |
+| Lock_tables_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Execute_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_slave_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_client_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_view_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_view_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_routine_priv      | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_routine_priv       | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_user_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Event_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Trigger_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tablespace_priv   | enum('N','Y')                     | NO   |     | N                     |       |
+| ssl_type                 | enum('','ANY','X509','SPECIFIED') | NO   |     |                       |       |
+| ssl_cipher               | blob                              | NO   |     | NULL                  |       |
+| x509_issuer              | blob                              | NO   |     | NULL                  |       |
+| x509_subject             | blob                              | NO   |     | NULL                  |       |
+| max_questions            | int(11) unsigned                  | NO   |     | 0                     |       |
+| max_updates              | int(11) unsigned                  | NO   |     | 0                     |       |
+| max_connections          | int(11) unsigned                  | NO   |     | 0                     |       |
+| max_user_connections     | int(11) unsigned                  | NO   |     | 0                     |       |
+| plugin                   | char(64)                          | NO   |     | caching_sha2_password |       |
+| authentication_string    | text                              | YES  |     | NULL                  |       |
+| password_expired         | enum('N','Y')                     | NO   |     | N                     |       |
+| password_last_changed    | timestamp                         | YES  |     | NULL                  |       |
+| password_lifetime        | smallint(5) unsigned              | YES  |     | NULL                  |       |
+| account_locked           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_role_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_role_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Password_reuse_history   | smallint(5) unsigned              | YES  |     | NULL                  |       |
+| Password_reuse_time      | smallint(5) unsigned              | YES  |     | NULL                  |       |
+| Password_require_current | enum('N','Y')                     | YES  |     | NULL                  |       |
+| User_attributes          | json                              | YES  |     | NULL                  |       |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+51 rows in set (0.0069 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user "usuario_1" @ "localhost" identified by "root2";
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"localhost" identified by "root2"' at line 1
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user 'usuario_1' @ 'localhost' identified by 'root2';
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''localhost' identified by 'root2'' at line 1
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user 'usuario_1' @ 'localhost' identified by 'root';
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''localhost' identified by 'root'' at line 1
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user 'usuario_1'@'localhost' identified by 'root';
+Query OK, 0 rows affected (1.7399 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > drop user "usuario_1"@"localhost";
+Query OK, 0 rows affected (0.3952 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user "usuario_2"@"localhost" identified by "root";
+Query OK, 0 rows affected (0.1053 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > grant all on *.* to "usuario_2"@"localhost";
+Query OK, 0 rows affected (0.2774 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user "eva_1"@"localhost" identified by "root";
+Query OK, 0 rows affected (0.1846 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > grant all on eva_1.* to "eva_1"@"localhost";
+Query OK, 0 rows affected (0.3215 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user "consultas"@"localhost" identified by "root";
+Query OK, 0 rows affected (0.1675 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > grant select on eva_1.* to "consultas"@"localhost";
+Query OK, 0 rows affected (0.1729 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > create user "jodidillo"@"localhost" identified by "root";
+Query OK, 0 rows affected (0.1683 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL > grant select on eva_1.* to "jodidillo"@"localhost";
+Query OK, 0 rows affected (0.1893 sec)
+
+ MySQL  localhost:3306 ssl  mysql  SQL >
+
+
+
+MySQL Shell 8.0.15
+
+Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+
+ MySQL  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 18
+Server version: 8.0.14 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| eva_1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.0328 sec)
+
+
+
+
+Type '\help' or '\?' for help; '\quit' to exit.
+
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+
+ MySQL  SQL > \connect --mc jodidillo@localhost;
+Creating a Classic session to 'jodidillo@localhost;'
+Please provide the password for 'jodidillo@localhost;': ****
+MySQL Error 2005 (HY000): Unknown MySQL server host 'localhost;' (2)
+
+ MySQL  SQL > \connect --mc jodidillo@localhost
+Creating a Classic session to 'jodidillo@localhost'
+Please provide the password for 'jodidillo@localhost': ****
+Save password for 'jodidillo@localhost'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 21
+Server version: 8.0.14 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| eva_1              |
+| information_schema |
++--------------------+
+2 rows in set (0.0030 sec)
+
+ MySQL  localhost:3306 ssl  SQL >
+
+
+
